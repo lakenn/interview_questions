@@ -1,0 +1,21 @@
+'use strict';
+
+/* global $, jQuery */
+
+function solution() {
+    // You can write to stdout for debugging purposes, e.g.
+    // console.log('this is a debug message');
+
+    $.ajax({
+            url: "https://www.example.com/articles",
+            dataType: 'json',
+            success: function(data){
+                $.each(data, function(index, element) {
+
+                    var title = $('<div class="article-title">').text(element.title);
+                    var content = $('<div class="article-content">').text(element.content);
+
+                    $('div.articles-list ').append($('<div class="article">', title, content));
+                });
+    }});
+}
