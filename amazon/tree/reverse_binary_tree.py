@@ -10,6 +10,7 @@ class Node:
 
 root = Node(1)
 root.left = Node(2)
+root.left.left = Node(4)
 root.right = Node(3)
 
 
