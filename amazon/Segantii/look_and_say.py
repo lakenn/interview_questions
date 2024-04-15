@@ -1,6 +1,7 @@
 '''
 
-Your task is to create a function that will take an integer and return the result of the look-and-say function on that integer. This should be a general function that takes as input any positive integer, and returns an integer; inputs are not limited to the sequence which starts with "1".
+Your task is to create a function that will take an integer and return the result of the look-and-say function on that integer.
+This should be a general function that takes as input any positive integer, and returns an integer; inputs are not limited to the sequence which starts with "1".
 
 Conway's Look-and-say sequence goes like this:
 
@@ -18,9 +19,10 @@ Sample inputs and outputs:
 '''
 from itertools import groupby
 
+
 def look_say(number):
   number_str = str(number)
-  result = ''.join( str(len(list(g))) + k for k, g in groupby(number_str))
+  result = ''.join(str(len(list(g))) + k for k, g in groupby(number_str))
   return int(result)
 
 print(look_say(12))

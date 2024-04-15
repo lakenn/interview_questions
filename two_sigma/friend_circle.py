@@ -55,7 +55,7 @@ def solution3(M):
     def bfs(n):
         q = [n]
         while q:
-            n = q.pop()
+            n = q.pop(0)
             for x in range(N):
                 if M[n][x] and x not in visited:
                     visited.add(x)

@@ -1,0 +1,29 @@
+/*
+Enter your query below.
+Please append a semicolon ";" at the end of the query
+*/
+
+
+
+SELECT
+    customer_name, COALESCE(product_name, "N/A"), COALESCE(sum(quantity), 0)
+FROM
+    customer
+LEFT JOIN
+(
+    SELECT customer_id, product_id, product_name, quantity
+    FROM
+    invoice
+    INNER JOIN invoice_item on invoice.id = invoice_item.invoice_id
+    INNER JOIN product on product.id = invoice_item.product_id
+) customer_product
+on id = customer_id
+group by id, customer_name, product_id, product_name
+UNION
+SELECT
+"N/A", product_name, 0
+FROM
+product
+where
+product.id NOT IN (SELECT product_id from invoice_item)
+

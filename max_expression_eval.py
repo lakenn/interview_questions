@@ -66,6 +66,25 @@ def max_result_expression(expression, variables):
     all_expressions = []
     #permutation(all_expressions, variables, expression, '', '', list(variables.keys()) )
 
+    #https://riptutorial.com/python/example/10160/all-combinations-of-dictionary-values
+    #
+    # import itertools
+    #
+    # options = {
+    #     "x": ["a", "b"],
+    #     "y": [10, 20, 30]}
+    #
+    # keys = options.keys()
+    # values = (options[key] for key in keys)
+    # combinations = [dict(zip(keys, combination)) for combination in itertools.product(*values)]
+
+    #https://www.hackerrank.com/challenges/itertools-product/problem
+
+    #https://stackoverflow.com/questions/55040080/python-create-combinations-of-dictionary
+    # from itertools import product
+    # D = {'a': [1, 2, 3], 'b': [0.1, 0.5], 'c': [10, 20]}
+    # print([dict(zip(D.keys(), v)) for v in product(*D.values())])
+
     possible_range = {key: (value[0], value[1]-1) for (key,value) in variables.items()}
     all_choices = [dict(zip(variables, v)) for v in product(*possible_range.values())]
 
