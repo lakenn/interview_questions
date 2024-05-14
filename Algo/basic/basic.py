@@ -14,3 +14,4 @@ multipliers = [lambda x, i=i: (i+1)*x for i in range(5)]
 
 Grade = namedtuple('Grade', ('score', 'weight'))
 Grade(10, 20)
+print(Grade(10, 20))

@@ -4,6 +4,8 @@ import collections
 # https://walkccc.me/LeetCode/problems/560/#__tabbed_1_2
 # https://www.youtube.com/watch?v=fFVZt-6sgyo&ab_channel=NeetCode
 
+# can't use the sliding/stretching window technique when there are negative numbers in the array, because the sum doesn't grow monotonically with the window size.
+
 class Solution:
 
     def subarraySum(self, nums: List[int], k: int) -> int:

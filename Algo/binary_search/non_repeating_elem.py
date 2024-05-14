@@ -1,5 +1,8 @@
 # https://workat.tech/problem-solving/approach/nre/non-repeating-element
 
+"""
+Given a sorted list of numbers in which all elements appear twice except one element that appears only once, find the number that appears only once.
+"""
 arr = [1, 1, 2, 3, 3, 4, 4]
 
 def find_non_repeating_element(arr):
