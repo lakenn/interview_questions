@@ -38,5 +38,5 @@ def max_product(arr, k):
         return result, low, high
 
 arr= [-6, -4, -2, -1, 2, 3, 10]
-result, low, high = max_product(arr, 6)
+result, low, high = max_product(arr, 3)
 print(result, low, high)

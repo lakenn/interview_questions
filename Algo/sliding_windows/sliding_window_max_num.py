@@ -17,6 +17,7 @@ from typing import List
 
 from collections import deque
 
+
 """
 # Thinking:
 1. I need a DS to remember the "max" seen so far when traversing thru the array
