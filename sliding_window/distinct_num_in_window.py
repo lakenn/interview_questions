@@ -14,10 +14,10 @@ class Solution:
     def distinctNumbersInWindow(self, A: List[int], k: int) -> List[int]:
         frequency = defaultdict(int)  # Dictionary to store the frequency of numbers
 
-        left = right = 0
+        left = 0
         ans = []
 
-        while right in range(len(A)):
+        for right in range(len(A)):
             frequency[A[right]] += 1
 
             if right - left + 1 == k:

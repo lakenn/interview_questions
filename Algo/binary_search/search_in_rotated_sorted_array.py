@@ -9,12 +9,35 @@ Given the array nums after the possible rotation and an integer target, return t
 
 You must write an algorithm with O(log n) runtime complexity.
 """
+from typing import List
+
 
 # https://www.youtube.com/watch?v=U8XENwh8Oy8&ab_channel=NeetCode
 
 # find pivot
 
-def find_pivot(nums):
-    left, right = 0, len(nums) - 1
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        left, right = 0, len(nums) - 1
 
-    while left <
+        while left <= right:
+            mid = (left + right) // 2
+
+            if nums[mid] == target:
+                return mid
+
+            # left sorted portion
+            if nums[left] <= nums[mid]:
+                if nums[mid] < target or nums[left] > target:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+            # right sorted portion
+            else:
+                if nums[mid] > target or nums[right] < target:
+                    right = mid - 1
+                else:
+                    left = mid + 1
+
+        return -1
+
