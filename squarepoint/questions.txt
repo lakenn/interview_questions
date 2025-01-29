@@ -1,0 +1,198 @@
+Squarepoint
+
+3 Parts
+- Intro
+- Projects
+- Why/what u are looking for
+
+Python fundamental
+ - decorator
+
+Technical discussion
+- How do u check, test, and unit test
+- Code review
+-
+Online coding on hacker rank
+ - Vector class
+ - sqrt ,  calculates
+ - number to text , text to number
+ -
+
+Python data
+- Describe how a list work under the hood
+-  Dynamic array or pointer
+-
+What happened when the list is nearly full and when u want to add object to it
+
+Are list restricted to any data types
+
+No, it can store anything which is a ptr to the object itself
+
+Describe how python dict work under the hood
+
+Describe hash collision, and how new key and value pair get stored
+
+How generator works
+
+How to write a python decorator
+
+Asyncio, how it work
+Event loop and coroutine
+
+Why is asyncio preferred over multi threading
+- Additional overhead of spawning new thread and latency
+
+Why is python slow when multi threading is involved
+- GIL
+
+Time complexity of most sorting algo
+
+Time complexity of worst naive sorting algo
+
+Code snippet , output
+
+How is memory managed in python and what kind of python obj can be used in dictionary
+
+What this code expect to do and how much can u improve it
+
+Hackkerank
+- Name , list of scores, less than 3 out of ten out of the scores, each score has a weighting , and determine if they pass or not
+- Input file format,  why might it be slow
+
+Different between diff python variables ? Set vs dict
+Different ways to generate a list
+
+List vs generator
+
+How does python work vs other languages
+Discussion of garage collection and reference counter/value
+
+Python semantics
+
+SOLID , REPEAT code — clean code
+
+Binary search
+Dictionary hashing
+
+Airflow/docker/kubenetese
+
+
+Docker image vs container
+Garage collection
+
+Quant developer
+- Python software engineering role in the front office role
+- Not for building models
+
+The cat behind 7 doors (IQ questions)
+
+Documentation
+
+Real time application / issues
+
+Deployment to production
+
+Connectivity to database and mapping
+
+Python data structure
+
+Challenging of testing
+
+Investigate slow running code accessing the database
+
+F string, data class and typing
+
+Architecture design.
+	- events sourcing
+	- DI
+	- abstract base classes
+
+Implement a key value store with transactions support in python
+
+- Eg. Begin tran
+- Rollback
+
+Immutability
+Implement an immutable class — how
+
+Discuss ur familiarity with async
+Handle Compute intensive in asynchronous server
+
+How to start a new thread in python
+
+Unstructured file of data (SQL)
+- Structure the data so it is readable / who get the paid the most
+
+Floating point number - take and parse in string, return the actual number
+
+Linux command line
+Diff between concurrency and parallelism
+
+Python domain
+Key value store in python
+
+Can u add the additional value to dict which include database interaction
+
+
+Remove file which contains specific file extension from a folder in linux
+How do u move a file from a src folder to a destination folder
+And what if the destination folder is in an diff server
+
+
+How do you proceed if multiple users run an intensive application in your linux server.
+
+Is python. Statically or dynamically typed
+
+And what are the diff
+
+List vs set in python
+Immutability vs mutablity
+
+Context manager, how do u write one
+
+How does python end up being compiled
+
+Coding question:
+Hash map in python,
+Wrapper over dictionary , and
+Move to non dictionary in implementaion
+
+O(1) implementation
+
+Linux command line and how do u work around it
+Changing and mkdir
+Symbolic link q
+
+Iterator
+List vs tuple
+
+How is Hash table implemented with primitive data structure
+Hash table vs binary search tree . Which will u use to sort the data
+
+How is hash table implement underwood
+
+How is an index in database implemented
+
+Data parsing ,
+USD to GBP , JPY to EUR
+Conversion ratio
+Function to take a src and target , exchange rate
+
+How to implement lock in multi threading env
+
+Implement a simple graph with an interface
+
+Dynamic programming algo
+Extract things from string
+
+How to create python package, and what happen when u run a python file
+
+How to switch into directory and make direct and list content
+
+Search a folder file
+
+Normalisation and primary key
+
+Reformat data
+
+Front office python developer working closely with Quant
