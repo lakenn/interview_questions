@@ -44,6 +44,23 @@ def fibonacci(n):
     return fib_array[:n]
 
 
+# fn = fn-2 + fn-1
+def fib_iteration(n):
+    if n == 0:
+        return 0
+
+    if n == 1:
+        return 1
+
+    a, b = 0, 1
+    count = 1
+
+    while count < n:
+        a, b = b, a + b
+        count += 1
+
+    return b
+
 if __name__ == '__main__':
     print(fibonacci(5))
     print(dp_fib(5))

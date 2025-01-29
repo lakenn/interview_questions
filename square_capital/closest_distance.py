@@ -18,13 +18,14 @@ def find_iter(substr: str, s: str) -> Iterator[int]:
             break
         yield start
         start += len(substr)
+        # start += 1
 
 
 # Enter your solution in this function
 def find_closest_substr_to_target(s: str, target: str, substr: str) -> int:
     target_idx = next(find_iter(target, s))
 
-    closest_distance = sys.maxsize
+    closest_distance = float('inf')
     ans = -1
 
     substr_gen = find_iter(substr, s)
