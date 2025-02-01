@@ -4,6 +4,9 @@ from typing import List
 
 arr = [0, 1, 2, 3, 2, 1, 0]
 
+#The array strictly increases until the peak element and then strictly decreases.
+# The monotonicity is a strong sign that we can use binary search to find the peak element.
+
 def peak_of_mountain_array(arr: List[int]) -> int:
     # WRITE YOUR BRILLIANT CODE HERE
 
@@ -13,6 +16,7 @@ def peak_of_mountain_array(arr: List[int]) -> int:
     while left <= right:
         mid = (left + right)//2
 
+        # maybe the peak and keep looking left of mid
         if mid == end or arr[mid] > arr[mid+1]:
             ans = mid
             right = mid - 1

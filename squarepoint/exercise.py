@@ -1,6 +1,35 @@
 import threading
 import re
 
+
+def skip(func):
+    def wrapper():
+        print('before execution')
+        func()
+        print('after execution')
+
+    return wrapper
+
+# function return a decorator
+def skip_it(skip):
+    def decorator(func):
+        def wrapper():
+            if not skip:
+                func()
+            else:
+                return None
+
+        return wrapper
+
+    return decorator
+
+@skip_it(skip=False)
+def greet():
+    print("Hello!")
+
+# skip_it(False)(greet)
+greet()
+
 def find_all_occurrence(s, substr):
     for match in re.finditer(substr, s):
         yield match
