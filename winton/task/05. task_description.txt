@@ -1,0 +1,64 @@
+This assignment tests your ability to efficiently handle market data from multiple sources. Please submit your answer as a zip file via the "Attach file" button on the right at the end of the allotted time.
+
+**Time Allocation:**
+- Complete the assignment in 90 minutes.
+- Allocate an extra 15 minutes for downloading input files and uploading your solutions.
+
+**Part 1 - Downloading the Data:**
+The data can be found here: https://bit.ly/wgl-quant-developer-task (Codility doesn't allow copy-paste, so type the URL manually into your browser). There are four files:
+1. `unified_data_api.py` - a Python script with the initial setup, the skeleton of the class to implement, and a method showcasing the intended use of the new class.
+2. `foo.pyc` – a pre-compiled package providing mock implementations for the historical and live APIs.
+3. `live_data.csv` – sample live data, to be accessed only through the provided live and historical APIs.
+4. `historic_data.csv` – sample historical data, to be accessed only through the provided live and historical APIs.
+
+**Part 2 - Working through the Python Script:**
+- You will need an environment with Python 3.12.3 and pandas 2.2.2.
+- Work through the tasks in the assignment description below, adding comments to your code where helpful to explain your approach.
+- Focus on quality rather than quantity; completion of the entire assignment is not necessarily expected.
+
+**Part 3 - Submitting Code:**
+- Zip up your script and upload it back to Codility once you're done.
+
+**Assignment Description:**
+
+**Unified Historical and Live Data API:**
+
+**Background:**
+You are tasked with implementing a unified API in Python that serves stitched historical and live data for a given universe of symbols. The data should be provided in chronological order, one timestamp at a time, to be consumed by a data processing pipeline.
+
+**Data Sources:**
+
+**Live Data Source:**
+- Push mode
+- Provides live data and replay of recent history (>T-10d) via a subscriber API
+
+**Historical Data Source:**
+- Pull mode
+- Provides historical data (<=T-2d)
+- Retrievable per symbol by date range
+- IMPORTANT: Retrieval time is proportional to the number of rows requested
+
+**Requirements:**
+Implement a Python class called UnifiedDataAPI that provides the following functionality:
+- Initializes with a list of symbols and a simulation start date.
+- Provides a method to get the next data point for the given list of symbols.
+- Seamlessly transitions from historical to real-time data.
+- Minimizes the time required to run a historical simulation knowing that:
+    - Historical data retrieval time increases with the amount of data requested (you can request shorter historical windows during testing).
+    - The historical API is thread-safe and supports concurrent requests.
+
+**Notes:**
+- Both live and historical APIs can be assumed to be thread-safe.
+- Docstrings for live and historical APIs, along with a `main()` function showing the intended use of the unified API, can be found in the provided `unified_data_api.py` script and the pre-compiled `foo` package.
+- A `test_data_sources()` function is included. It is recommended to make sure it runs before starting your implementation.
+
+**Evaluation Criteria:**
+- The performance of the implemented solution.
+- Handling of the transition between historical and live data.
+- Code quality and readability.
+
+**Bonus Points:**
+- Error handling.
+- Scalability of the solution, handling datasets that don’t fit in memory.
+
+

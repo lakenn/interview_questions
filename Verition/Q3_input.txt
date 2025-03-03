@@ -1,0 +1,81 @@
+-- Implement your solution here
+WITH dummy_transactions AS (
+    SELECT generate_series(
+        '2020-01-01'::date,  -- Start date
+        '2020-12-01'::date,  -- End date
+        '1 month'::interval
+    ) AS date,
+    0 AS amount
+),
+all_transactions AS (
+    SELECT date, amount
+    FROM transactions
+    UNION ALL
+    SELECT date, amount
+    FROM dummy_transactions
+),
+monthly_summary as (
+    SELECT
+        date_trunc('month', date) as month,
+        SUM(amount) as monthly_balance,
+        COUNT(CASE WHEN amount < 0 THEN 1 END) as spending_count,
+        SUM(CASE WHEN amount < 0 THEN amount ELSE 0 END) as total_spending
+    FROM all_transactions
+    GROUP BY date_trunc('month', date)
+),
+monthly_balance_with_fees as (
+    SELECT
+        month,
+        monthly_balance,
+        CASE
+            WHEN spending_count >= 3 AND total_spending <= -100 THEN 0
+            ELSE 5
+        END AS fees
+    FROM monthly_summary
+)
+SELECT SUM(monthly_balance) - SUM(fees) AS balance
+FROM monthly_balance_with_fees;
+
+
+Example test:   (First example test.)
+Returned value:
++------+
+| 2746 |
++------+
+OK
+
+Example test:   (Second example test.)
+Returned value:
++------+
+| -612 |
++------+
+OK
+
+Example test:   (Third example test.)
+Returned value:
++-------+
+| 20940 |
++-------+
+OK
+
+Your test case:
+insert into transactions values ('1000', '2020-01-06');
+insert into transactions values ('-10', '2020-01-14');
+insert into transactions values ('-75', '2020-01-20');
+insert into transactions values ('-5', '2020-01-25');
+insert into transactions values ('-4', '2020-01-29');
+insert into transactions values ('2000', '2020-03-10');
+insert into transactions values ('-75', '2020-03-12');
+insert into transactions values ('-20', '2020-03-15');
+insert into transactions values ('40', '2020-03-15');
+insert into transactions values ('-50', '2020-03-17');
+insert into transactions values ('200', '2020-10-10');
+insert into transactions values ('-200', '2020-10-10');
+
+Returned value:
++------+
+| 2746 |
++------+
+
+Your code is syntactically correct and works properly on the example test.
+Note that the example tests are not part of your score. On submission at least 8 test cases not shown here will assess your solution.

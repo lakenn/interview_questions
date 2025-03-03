@@ -1,3 +1,4 @@
+import re
 from typing import Iterator
 import os
 import sys
@@ -6,6 +7,10 @@ import sys
 class NotFoundException(Exception):
     pass
 
+
+def find_all_occurrence(s, substr):
+    for match in re.finditer(substr, s):
+        yield match
 
 def find_iter(substr: str, s: str) -> Iterator[int]:
     """

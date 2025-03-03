@@ -5,13 +5,18 @@ Stock Exchange
 The Challenge
 
 
-Implement an order matching system for a stock exchange. Traders place Buy and Sell orders for a stock indicating the price and quantity. Each order gets entered into the exchange’s order-book and remains there until it is matched. Order matching is attempted whenever a new order is added.
+Implement an order matching system for a stock exchange. Traders place Buy and Sell orders for a stock indicating the price and quantity.
+Each order gets entered into the exchange’s order-book and remains there until it is matched. Order matching is attempted whenever a new order is added.
 
 
-The exchange follows a FirstInFirstOut Price-Time order-matching rule, which states that: "The first order in the order-book at a price level is the first order matched. All orders at the same price level are filled according to time priority." The exchange works like a market where lower selling prices and higher buying prices get priority.
+The exchange follows a FirstInFirstOut Price-Time order-matching rule, which states that:
+"The first order in the order-book at a price level is the first order matched.
+All orders at the same price level are filled according to time priority."
+The exchange works like a market where lower selling prices and higher buying prices get priority.
 
 
-A trade is executed when a buy price is greater than or equal to a sell price. The trade is recorded at the price of the sell order regardless of the price of the buy order.
+A trade is executed when a buy price is greater than or equal to a sell price.
+The trade is recorded at the price of the sell order regardless of the price of the buy order.
 
 
 Your program should take as input:
@@ -80,6 +85,32 @@ class OrderType(Enum):
     BUY = 'buy'
     SELL = 'sell'
 
+
+'''
+class Order:
+    def __init__(self, order_id, creation_time, ticker, order_type, price, qty):
+        self.order_id = order_id
+        self.creation_time = creation_time
+        self.ticker = ticker
+        self.order_type = order_type
+        self.price = price
+        self.qty = qty
+
+    def __lt__(self, other):
+        """ Define sorting for min-heap (SELL) and max-heap (BUY) """
+
+        # If prices are the same, sort by FIFO (earlier orders first)
+        if self.price == other.price:
+            return self.creation_time < other.creation_time
+
+        # Min heap for SELL orders (lower price preferred)
+        # Max heap for BUY orders (higher price preferred)
+        return self.price < other.price if self.order_type == OrderType.SELL else self.price > other.price
+
+    def __repr__(self):
+        return f"Order({self.order_id}, {self.creation_time}, {self.ticker}, {self.order_type}, {self.price}, {self.qty})"
+        
+'''
 @dataclass
 class Order:
     order_id: int

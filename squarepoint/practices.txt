@@ -2,6 +2,23 @@ Namespace, CGroup (control groups), and Union file-system are the basic building
 
 https://medium.com/@sonalijain0605/linux-kernel-component-to-provide-containerization-54c66e9ed392#:~:text=In%20summary%2C%20namespaces%20provide%20process,lightweight%20and%20shareable%20container%20images.
 
+
+Docker is an open-source platform that allows you to develop, ship, and run applications in isolated environments called containers. Containers package an application along with all its dependencies, ensuring that it runs consistently across different computing environments.
+
+Key Concepts of Docker
+Containers – Lightweight, portable, and self-sufficient environments that run applications with all required dependencies.
+Images – A snapshot of a container that includes the application and its dependencies.
+Dockerfile – A script that defines how to build a Docker image.
+Docker Hub – A public repository where you can find and share Docker images.
+Docker Compose – A tool that allows you to define and run multi-container applications.
+
+Why Use Docker?
+Portability: Runs on any system that supports Docker (Windows, Mac, Linux).
+Consistency: Eliminates "works on my machine" issues.
+Scalability: Easily scale applications up or down.
+Efficiency: Uses fewer resources than traditional virtual machines.
+
+
 Docker
 ------------
 Docker Images
@@ -161,6 +178,10 @@ rsync -avz /path/to/source/file user@destination_server:/path/to/destination/fol
 -- Search a folder
 find /path/to/search -type f -name "filename"
 
+Decorators in Python
+A decorator in Python is a function that modifies the behavior of another function or class without changing its code.
+It allows for reusable and readable modifications to functions, such as logging, access control, or memoization.
+
 ========================
 Q1. Python List
 
@@ -181,8 +202,10 @@ Object References:
 In Python, everything is an object. Whether it's an integer, string, list, or custom class, all are objects.
 A list doesn't hold the actual value of each element directly but instead holds references (or pointers) to the objects.
 This is why a list can store a reference to any type of object without issues.
-Flexible Memory Allocation:
 
+
+Flexible Memory Allocation:
+-------------------------------------+
 Python’s memory model allows lists to store objects in a flexible manner. A list doesn’t care about the internal
 structure of the objects it contains, so you can mix types in the same list.
 
@@ -316,6 +339,22 @@ Preemptive threading requires the OS to manage thread switching, context switchi
 Cooperative threading still involves the OS, but threads themselves control when they switch.
 
 
+Question
+Python decorator
+
+in simple terms, a decorator is a function that takes another function as input and returns a new function
+with modified behavior—without changing the original function’s code.
+
+Think of it like a wrapper that adds extra functionality before or after the original function runs.
+
+
+Yes! 🎯 Python treats functions as first-class objects, meaning functions can be:
+✅ Assigned to variables
+✅ Passed as arguments
+✅ Returned from other functions
+
+This is what makes decorators possible!
+
 Q8 Fork vs Thread
 Threads share memory and resources, making their creation lightweight and fast.
 Forked processes require independent memory space, resource duplication, and additional system calls, making their creation slower.
@@ -356,6 +395,11 @@ where the program can continue executing other tasks while waiting for I/O to co
 The main benefits of asyncio are its efficiency and the ability to handle many tasks concurrently with a single thread,
 avoiding the overhead of threading or multiprocessing.
 
+
+Question
+Multi-threading involves running multiple threads within a single process.
+Multi-processing involves running multiple independent processes, each with its own memory space.
+
 Q11 GIL
 The reason Python can be slow with multithreading is primarily due to the Global Interpreter Lock (GIL).
 
@@ -389,3 +433,166 @@ print(obj.value)  # Output: 100
 
 # dataclasses with frozen=True: Easily create immutable data classes.
 # final: Indicate that a class or method should not be subclassed or overridden.
+
+Question
+Python pass by reference ?
+
+Python’s argument-passing model is neither “Pass by Value” nor “Pass by Reference” but it is “Pass by Object Reference”.
+
+Depending on the type of object you pass in the function, the function behaves differently.
+Immutable objects show “pass by value” whereas mutable objects show “pass by reference”.
+
+In both Java and Python:
+
+Modifying the object inside the method will affect the original object because both the method and the caller are working with the same object.
+Reassigning the reference inside the method to a new object will not affect the caller’s reference.
+The caller’s reference will still point to the original object, just as in Java, where changing the reference inside the method does not change the caller's reference to the object.
+
+
+Question
+In Python, iterators, iterables, and generators are all related but distinct concepts. Let’s break down each one clearly.
+
+1. Iterable
+Definition: An iterable is any object in Python that can return an iterator. In other words, an iterable is an object that you can loop over (like a list, tuple, string, etc.).
+How to recognize: If an object has an __iter__() method (or __getitem__() for sequences), it is an iterable.
+Example: Lists, tuples, dictionaries, and strings are all iterable objects.
+
+2. Iterator
+Definition: An iterator is an object that represents a stream of data. An iterator can only be traversed in one direction and must implement two methods:
+__iter__() (returns the iterator object itself)
+__next__() (returns the next item in the sequence or raises StopIteration when the sequence ends)
+How to recognize: All iterators are iterables, but not all iterables are iterators.
+
+An iterator must return itself in __iter__() and implement __next__().
+An iterable must define __iter__() but doesn't need __next__().
+Yes! When you call iter(list), it returns a built-in list iterator that implements __next__() by default.
+
+3. Generator
+Definition: A generator is a special type of iterator that is defined using a function (with the yield keyword) instead of returning a complete list. It generates values one at a time as you iterate over them.
+
+How to recognize: Generators are iterators, but they are defined using the yield keyword.
+
+Benefits: Generators are lazy, meaning they don’t store all values in memory at once and only generate values when needed. This is efficient for large datasets.
+
+A generator expression is a concise way to create a generator in Python, similar to list comprehensions, but instead of creating an entire list in memory, it yields items one at a time, making it more memory efficient.
+
+Syntax of Generator Expression:
+(expression for item in iterable if condition)
+
+
+Coding q
+1. Data Structures & Algorithms
+Arrays & Strings
+Reverse a string without using .reverse() or slicing.
+Check if two strings are anagrams.
+Find the first non-repeating character in a string.
+Find the longest substring without repeating characters.
+Rotate an array k times to the right.
+Merge two sorted arrays without extra space.
+Find the maximum product of two integers in an array.
+Find the majority element (appears more than n/2 times).
+Find the kth smallest/largest element in an unsorted array.
+Find a subarray with the maximum sum (Kadane's Algorithm).
+Find the missing number in an array of size n with numbers 1 to n.
+Find the intersection of two arrays.
+Find pairs in an array that sum to a given value.
+Find the median of two sorted arrays.
+Find the longest palindrome substring.
+Linked Lists
+Reverse a linked list (iterative & recursive).Ï
+Detect a cycle in a linked list.
+Find the intersection point of two linked lists.
+Remove the nth node from the end of a linked list.
+Find the middle of a linked list.
+Merge two sorted linked lists.
+Add two numbers represented by linked lists.
+Flatten a linked list.
+Stacks & Queues
+Implement a stack with push(), pop(), and getMin().
+Implement a queue using two stacks.
+Evaluate a postfix expression.
+Check if a given expression has balanced parentheses.
+Find the largest rectangle in a histogram.
+Implement a circular queue.
+Trees & Graphs
+Find the height of a binary tree.
+Check if a binary tree is balanced.
+Check if a binary tree is a valid BST.
+Find the lowest common ancestor (LCA) of two nodes in a BST.
+Find the level order traversal of a binary tree.
+Find the zigzag level order traversal of a binary tree.
+Implement DFS (depth-first search) for a graph.
+Implement BFS (breadth-first search) for a graph.
+Find the shortest path in an unweighted graph using BFS.
+Detect a cycle in a directed graph.
+Find the number of connected components in a graph.
+Sorting & Searching
+Implement merge sort and quicksort.
+Find the kth largest element in an array.
+Find a peak element in an array.
+Binary search in a rotated sorted array.
+Search for an element in a nearly sorted array.
+Dynamic Programming
+Find the nth Fibonacci number (memoization & bottom-up approach).
+Find the longest common subsequence of two strings.
+Find the maximum sum subarray (Kadane’s Algorithm).
+Find the minimum number of coins needed to make a given amount.
+Find the number of ways to climb a staircase (1 or 2 steps at a time).
+2. System Design & OOP
+Object-Oriented Programming (OOP)
+Design a parking lot system with different vehicle types.
+Design a library management system (books, users, borrow/return).
+Design a URL shortening service (like TinyURL).
+Implement a Least Recently Used (LRU) Cache using a dictionary & linked list.
+Design a social media news feed.
+Design an elevator control system.
+Design a hotel booking system.
+Design an ATM machine system.
+Concurrency & Multithreading
+Implement a producer-consumer problem using threading.
+Write a thread-safe Singleton class.
+Implement a rate limiter using a token bucket algorithm.
+Design a thread pool executor.
+Implement a concurrent read/write system using locks.
+Use condition variables to synchronize multiple threads.
+3. Python-Specific Questions
+Python Built-ins & Collections
+What is the difference between deepcopy and copy?
+Implement a function that groups anagrams together using defaultdict.
+What is the difference between Counter.most_common() and sorted(Counter.items())?
+Implement a custom dictionary that tracks insertion order.
+Generators & Iterators
+Implement a generator that yields Fibonacci numbers indefinitely.
+Convert a normal function into a generator using yield.
+Explain yield from with an example.
+Write a function that returns an infinite stream of prime numbers.
+Decorators & Metaclasses
+Write a decorator that caches function results (memoization).
+Implement a decorator that times function execution.
+What is a metaclass, and when would you use one?
+Implement a metaclass that restricts the number of instances of a class.
+File Handling & Serialization
+Write a function to read a large file line by line without loading it into memory.
+Serialize and deserialize a Python object using pickle.
+Implement a log file rotation system.
+Python Memory & Performance
+Explain how Python manages memory.
+What is a memory leak, and how can you prevent it in Python?
+Optimize a function using functools.lru_cache.
+Explain the difference between is and ==.
+4. Databases & SQL
+Write an SQL query to find the second-highest salary from an employee table.
+Find the duplicate emails in a table.
+Explain the difference between INNER JOIN, LEFT JOIN, and RIGHT JOIN.
+Design a database schema for an e-commerce website.
+5. Web Scraping & APIs
+Write a web scraper to fetch article titles from a news website.
+Use requests to call an API and process the JSON response.
+Rate limit API requests to avoid getting blocked.
+6. Data Science & Pandas
+Load a CSV file into a Pandas DataFrame and filter rows.
+Group data by a column and compute aggregate statistics.
+Handle missing data in a Pandas DataFrame.
+Merge two DataFrames on a common column.
+Pivot and reshape data in Pandas.
+

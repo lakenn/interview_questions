@@ -8,7 +8,7 @@ def class_grades(students):
     :returns: (list) Each element is a list with the following
       elements: Class name (string), median grade for students in the class (float).
     """
-    df = pd.Dataframe(students, columns=['name', 'class_name', 'score'])
+    df = pd.DataFrame(students, columns=['name', 'class_name', 'score'])
     df.groupby(['class_name']).median()
     return df.values.tolist()
 

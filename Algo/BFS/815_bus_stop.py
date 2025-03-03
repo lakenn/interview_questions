@@ -37,6 +37,7 @@ class Solution:
 
             for next_bus_stop in route:
                 if next_bus_stop not in visited:
+                    visited.add(next_bus_stop)
                     queue.append(next_bus_stop)
 
         return -1

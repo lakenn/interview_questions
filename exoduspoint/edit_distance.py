@@ -1,3 +1,9 @@
+"""
+Given two strings, str1 and str2, compute the edit distance between them.
+
+Input: Two strings str1 and str2.
+Output: An integer that represents the minimum number of operations needed to convert str1 into str2.
+"""
 def setup():
     print(distance("kitten", "sitting"))
 

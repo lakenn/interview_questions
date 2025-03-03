@@ -44,9 +44,10 @@ class Solution:
 
             while queue:
                 node = queue.popleft()
-                visited.add(node)
+                # Visit all keys in the current room
                 for room_key in rooms[node]:
                     if room_key not in visited:
+                        visited.add(node)
                         print(room_key)
                         queue.append(room_key)
 

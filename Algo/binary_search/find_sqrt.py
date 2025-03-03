@@ -17,5 +17,3 @@ def floorSqrt(x):
             ans = mid
 
     return ans
-
-

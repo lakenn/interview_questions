@@ -1,0 +1,24 @@
+awk -F'[:, ]+' '/"item_id"/ {print $NF}' /path/to/logs/*
+find /path/to/csv/directory -type f -name "*.csv" -exec awk -F',' 'NR > 1 {print $1}' {} \; | sort | uniq
+{} + passes multiple files to the command at once, which is more efficient.
+{} \; runs the command once per file.
+
+grep -o 'item_id=[0-9]*' /path/to/logs/* | cut -d= -f2 | sort -u
+
+printf '%10s %5i %5i %5i %8.2f \n' $(cat printf.txt | grep -v Name)
+
+start_time=1701972000000
+end_time=1701976000000
+
+awk -F',' -v start="$start_time" -v end="$end_time" '
+    $1 >= start && $1 <= end { sum += $5 }
+    END { print "Total Quantity:", sum }
+' shopping_cart.csv
+
+awk -F',' -v start_time=1 -v end_time=4 '$1 >= start_time && $1 <= end_time { print $0 }' file1.csv
+
+To get a breakdown by item:
+awk -F',' -v start="$start_time" -v end="$end_time" '
+    $1 >= start && $1 <= end { sum[$4] += $5 }
+    END { for (item in sum) print item, "Total Quantity:", sum[item] }
+' shopping_cart.csv
